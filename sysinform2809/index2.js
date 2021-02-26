@@ -9,11 +9,6 @@ var server = Http.createServer(function(request,response) {
       response.end();
     });
 
-
-
-
-
-
 });
 
 server.listen( 3000, function( ) {
