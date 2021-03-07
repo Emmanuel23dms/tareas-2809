@@ -8,7 +8,11 @@ router.get('/', (req,res,next)=>{
 } );
 
 router.get('/garen',(req,res,next)=>{
-  res.render('campeongaren',{nombre:'Garen',pasiva:'perseverancia'});
+  res.render('campeongaren',{nombre:'Garen',pasiva:'perseverancia'})
+});
+
+router.get('/morgana',(req,res,next)=>{
+  res.render('campeonmorgana',{nombre:'Morgana',pasiva:'absorbealmas'})
 })
 
 
