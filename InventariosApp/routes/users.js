@@ -8,7 +8,20 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/login',(req,res,next)=>{
+  //console.log(req.body.email , req.body.passwd);
+ usuario.login(req.body.email , req.body.passwd,(e,d)=>{
+   if(d){
+     res.send('Login correcto');
+     ses=req.session;
+     console.log(ses.id);
+     //Crear la sesion
+     /*Reutilizar la sesion original del chrome
+     hacer una nueva, desechando la web browser*/
 
+   }else{
+     res.json(e);
+   }
+ });
 });
 
 module.exports = router;
