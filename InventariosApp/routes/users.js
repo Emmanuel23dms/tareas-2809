@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/login',(req,res,next)=>{
   //console.log(req.body.email , req.body.passwd);
+ console.log(req.body.email , req.body.passwd);
  usuario.login(req.body.email , req.body.passwd,(e,d)=>{
    if(d){
 
@@ -16,6 +17,12 @@ router.post('/login',(req,res,next)=>{
      console.log(ses.id);
      ses.userdata = d;
      console.log(ses);
+     const payload = {
+       datos : d
+     };
+     const clave = 'dios1234'; //Obtener desde variable de entorno
+     const token = jwt.sign{payload,clave,{expiresIn:60*5}};
+     ses.token = token;
      res.redirect('/');
      //Crear la sesion
      /*Reutilizar la sesion original del chrome
