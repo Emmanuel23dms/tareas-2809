@@ -20,8 +20,8 @@ router.post('/login',(req,res,next)=>{
      const payload = {
        datos : d
      };
-     const clave = 'dios1234'; //Obtener desde variable de entorno
-     const token = jwt.sign{payload,clave,{expiresIn:60*5}};
+     const clave = process.env.SECRETO || 'dios1234'; //Obtener desde variable de entorno
+     const token = jwt.sign(payload,clave,{expiresIn:60*5});
      ses.token = token;
      res.redirect('/');
      //Crear la sesion
